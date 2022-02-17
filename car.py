@@ -1,9 +1,11 @@
+from abc import ABC
+
 from serviceable import Serviceable
 from engines import Engine
 from battery import Battery
 
 
-class Car(Serviceable):
+class Car(Serviceable, ABC):
     def __init__(self):
         self.engine = Engine()
         self.battery = Battery()
