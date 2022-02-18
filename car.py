@@ -1,14 +1,13 @@
 from abc import ABC
 
 from serviceable import Serviceable
-from engines import Engine
-from battery import Battery
 
 
 class Car(Serviceable, ABC):
-    def __init__(self):
-        self.engine = Engine()
-        self.battery = Battery()
+    def __init__(self, engine, battery):
+        self.engine = engine
+        self.battery = battery
 
     def needs_service(self):
-        pass
+        self.engine.needs_service()
+        self.battery.needs_service()
