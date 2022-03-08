@@ -6,14 +6,24 @@ from engine.willoughby_engine import WilloughbyEngine
 from battery.nubbin_battery import NubbinBattery
 from battery.spindler_battery import SpindlerBattery
 
-class CarFactory(Car):
+class CarFactory:
     def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
-        return super().__init__(CapuletEngine(current_mileage, last_service_mileage), SpindlerBattery(last_service_date, current_date))
+        engine = CapuletEngine(current_mileage, last_service_mileage)
+        battery = SpindlerBattery(last_service_date, current_date)
+        return Car(engine, battery)
     def create_glissade(current_date, last_service_date, current_mileage, last_service_mileage):
-        return super().__init__(WilloughbyEngine(current_mileage, last_service_mileage), SpindlerBattery(last_service_date, current_date))
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        battery = SpindlerBattery(last_service_date, current_date)
+        return Car(engine, battery)
     def create_palindrome(current_date, last_service_date, warning_light_on):
-        return super().__init__(SternmanEngine(warning_light_on), SpindlerBattery(last_service_date, current_date))
+        engine = SternmanEngine(warning_light_on)
+        battery = SpindlerBattery(last_service_date, current_date)
+        return Car(engine, battery)
     def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage):
-        return super().__init__(WilloughbyEngine(current_mileage, last_service_mileage), NubbinBattery(last_service_date, current_date))
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        battery = NubbinBattery(last_service_date, current_date)
+        return Car(engine, battery)
     def create_thovex(current_date, last_service_date, current_mileage, last_service_mileage):
-        return super().__init__(CapuletEngine(current_mileage, last_service_mileage), NubbinBattery(last_service_date, current_date))
+        engine = CapuletEngine(current_mileage, last_service_mileage)
+        battery = NubbinBattery(last_service_date, current_date)
+        return Car(engine, battery)

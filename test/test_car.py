@@ -3,14 +3,12 @@ from datetime import datetime
 
 from carfactory import CarFactory
 
-
 class TestCalliope(unittest.TestCase):
     def test_battery_should_be_serviced(self):
         today = datetime.today().date()
         last_service_date = today.replace(year=today.year - 3)
         current_mileage = 0
         last_service_mileage = 0
-
         car = CarFactory.create_calliope(today, last_service_date, current_mileage, last_service_mileage)
         self.assertTrue(car.needs_service())
 
@@ -87,7 +85,7 @@ class TestPalindrome(unittest.TestCase):
 
     def test_battery_should_not_be_serviced(self):
         today = datetime.today().date()
-        last_service_date = today.replace(year=today.year - 3)
+        last_service_date = today.replace(year=today.year - 1)
         warning_light_is_on = False
 
         car = CarFactory.create_palindrome(today, last_service_date, warning_light_is_on)

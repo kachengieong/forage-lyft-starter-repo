@@ -1,6 +1,6 @@
 from abc import ABC
 
-from battery import Battery
+from batterys import Battery
 from datetime import datetime
 
 class NubbinBattery(Battery):
